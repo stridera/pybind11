@@ -183,6 +183,8 @@ function(pybind11_add_module target_name)
     set(lib_type MODULE)
   endif()
 
+  find_package (Python3 COMPONENTS Interpreter Development)
+
   if("${_Python}" STREQUAL "Python")
     python_add_library(${target_name} ${lib_type} ${ARG_UNPARSED_ARGUMENTS})
   elseif("${_Python}" STREQUAL "Python3")
